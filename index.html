@@ -14,6 +14,7 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="style.css" />
 
     <title>Code Quiz</title>
@@ -26,19 +27,24 @@
         <div class="col-sm-2">time:0</div>
       </div>
       <br />
-      <div class="card">
-        <div class="card-body">
+      <div id="container" class="card">
+        <h1>Coding Quiz</h1>
+        <p class="card-text">
+          Try to answer these coding questions within the time limit. Incorrect
+          answers will give you a 10 second time penalty!
+        </p>
+        <div id="quiz" class="hide" class="card-body">
           <h1 id="question" class="card-title">Coding Quiz</h1>
-          <p class="card-text">
-            Try to answer these coding questions within the time limit.
-            Incorrect answers will give you a 10 second time penalty!
-          </p>
           <div id="answer">
-            <a href="#" class="btn btn-primary">Button</a>
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
           </div>
         </div>
+        <button id="start">Start</button>
       </div>
     </div>
-    <link rel="javascript" href="script.js" />
+    <script src="script.js"></script>
   </body>
 </html>

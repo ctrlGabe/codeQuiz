@@ -5,6 +5,33 @@
   background-color: white;
   border-radius: 5px;
   color: black;
-  font-weight: bold;
   box-shadow: 5px 5px 5px #888;
+  text-align: center;
+}
+
+#answer {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.btn {
+  color: white;
+  background-color: blue;
+  border-color: black;
+}
+
+#start {
+  color: white;
+  background-color: red;
+  border-color: black;
+  padding: 10px 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.hide {
+  display: none;
 }
