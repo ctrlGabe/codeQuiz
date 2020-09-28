@@ -28,13 +28,15 @@
       </div>
       <br />
       <div id="container" class="card">
-        <h1>Coding Quiz</h1>
-        <p class="card-text">
-          Try to answer these coding questions within the time limit. Incorrect
-          answers will give you a 10 second time penalty!
-        </p>
-        <div id="quiz" class="hide" class="card-body">
-          <h1 id="question" class="card-title">Coding Quiz</h1>
+        <div id="preQuiz">
+          <h1>Coding Quiz</h1>
+          <p class="card-text">
+            Try to answer these coding questions within the time limit.
+            Incorrect answers will give you a 10 second time penalty!
+          </p>
+        </div>
+        <div id="quiz" class="hide"">
+          <h1 id="question">Question</h1>
           <div id="answer">
             <button class="btn">Answer 1</button>
             <button class="btn">Answer 2</button>
@@ -42,7 +44,7 @@
             <button class="btn">Answer 4</button>
           </div>
         </div>
-        <button id="start">Start</button>
+        <button id="start" class="">Start</button>
       </div>
     </div>
     <script src="script.js"></script>

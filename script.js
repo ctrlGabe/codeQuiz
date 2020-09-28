@@ -1,4 +1,4 @@
-var questions = [
+var questionChoices = [
   {
     question: "What is javascript?",
     choices: ["hippo", "12", "code", "purple"],
@@ -23,12 +23,32 @@ var questions = [
 
 var startButton = document.getElementById("start");
 
+var preQuiz = document.getElementById("preQuiz");
+
+var questionEl = document.getElementById("question");
+
+var answerEl = document.getElementById("answer");
+
 startButton.addEventListener("click", startGame);
+
+quizContainer = document.getElementById("quiz");
 
 function startGame() {
   console.log("Boom baby");
+  startButton.classList.add("hide");
+  preQuiz.classList.add("hide");
+  quizContainer.classList.remove("hide");
+  questionCount = 0;
+  nextQuestion();
 }
 
-function nextQuestion() {}
+function nextQuestion() {
+  showQuestion(questionCount);
+}
+function showQuestion(question) {
+  questionEl.textContent = questionChoices.question;
+}
 
-function pickAnswer() {}
+function pickAnswer() {
+  questionCount++;
+}
