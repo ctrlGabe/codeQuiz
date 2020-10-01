@@ -1,38 +1,45 @@
 var questions = [
   {
-    question: "Who created Javascript?",
-    answers: ["Arnold Schwarzenegger", "Brendan Eich", "Bill Gates", "Al Gore"],
-    correct: "Brendan Eich",
-  },
-  {
-    question: "Inside which HTML element do we write Javascript?",
-    answers: ["<body>", "<scripting>", "<script>", "<javascript>"],
-    correct: "<script>",
-  },
-  {
-    question: "How do you create a function in Javascript?",
+    question:
+      "What is the function that can be used to check if the number is an integer or not?",
     answers: [
-      "function = myFunction()",
-      "myFunction() = function",
-      "function:myFunction()",
-      "function myFunction()",
+      "Integer(value)",
+      "ifInteger(value)",
+      "isInteger(value)",
+      "ifinteger(value)",
     ],
-    correct: "function myFunction()",
+    correct: "isInteger(value)",
   },
   {
-    question: "Which symbol is used to wrap an array?",
-    answers: ["[]", "()", "{}", "//"],
-    correct: "[]",
-  },
-  {
-    question: "How do you declare a Javascript variable?",
+    question: "Which of the following is an advantage of using JavaScript?",
     answers: [
-      "variable = myName;",
-      " v myName;",
-      "var myName;",
-      "variable myName;",
+      "Increased interactivity.",
+      "Less server interaction.",
+      "Immediate feedback from the users.",
+      "All of the above.",
     ],
-    correct: "var myName;",
+    correct: "All of the above.",
+  },
+  {
+    question:
+      "Which function of an Array object calls a function for each element in the array?",
+    answers: ["forEach()", "every()", "forEvery()", "each()"],
+    correct: "forEach()",
+  },
+  {
+    question: "JavaScript is a ________ Side Scripting Language.",
+    answers: ["Server", "ISP", "Browser", "None of the above"],
+    correct: "Browser",
+  },
+  {
+    question: "Which was the first browser to support JavaScript?",
+    answers: [
+      "Mozilla Firefox",
+      "Netscape",
+      "Google Chrome",
+      "Internet Explorer",
+    ],
+    correct: "Netscape",
   },
 ];
 
@@ -55,9 +62,11 @@ function startGame() {
   startButton.classList.add("hide");
   preQuiz.classList.add("hide");
   quizContainer.classList.remove("hide");
-  // startTimer()
+  startTimer();
   startQuiz();
 }
+
+function startTimer() {}
 
 function startQuiz() {
   console.log("start quiz works");
@@ -65,35 +74,8 @@ function startQuiz() {
   showQuestion(questions[questionCount]);
 }
 
-questions[questionCount].answers.textContent
-
 function showQuestion(question) {
   console.log("show question works");
-  reset();
-  questionEl.textContent = question.question;
-
-  for (let i = 0; i < question.answers.length; i++) {
-    var help = question.answers[i];
-    var button = document.createElement("button");
-    button.innerText = help.innerText;
-    button.classList.add("btn");
-    answerEl.appendChild(button);
-  }
-
-  // question.answers.forEach(function () {
-  //   var button = document.createElement("button");
-  //   button.innerText = question.answers;
-  //   console.log(question.answers);
-  //   button.classList.add("btn");
-  //   // if (answer.correct) {
-  //   //   button.dataset.correct = answer.correct;
-  //   // }
-  //   button.addEventListener("click", pickAnswer);
-  //   answerEl.appendChild(button);
-  // });
-}
-
-function showQuestion(question) {
   questionEl.innerText = question.question;
   document.getElementById("btn-1").textContent =
     questions[questionCount].answers[0];
@@ -104,20 +86,16 @@ function showQuestion(question) {
   document.getElementById("btn-4").textContent =
     questions[questionCount].answers[3];
 }
+
 document.getElementById("btn-1").addEventListener("click", pickAnswer);
 document.getElementById("btn-2").addEventListener("click", pickAnswer);
 document.getElementById("btn-3").addEventListener("click", pickAnswer);
 document.getElementById("btn-4").addEventListener("click", pickAnswer);
 
-function reset() {
-  while (answerEl.firstChild) {
-    answerEl.removeChild(answerEl.firstChild);
-  }
-}
-
 function pickAnswer() {
   questionCount++;
-  showQuestion(questions[questionCount]);
+  if (questions.length >= questionCount + 1) {
+    showQuestion(questions[questionCount]);
+  } else stopQuiz();
 }
-
-// justin
+function stopQuiz() {}
