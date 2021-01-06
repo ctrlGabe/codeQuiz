@@ -1,7 +1,6 @@
 var questions = [
   {
-    question:
-      "What is the function that can be used to check if the number is an integer or not?",
+    question: "What is the function that can be used to check if the number is an integer or not?",
     answers: [
       "Integer(value)",
       "ifInteger(value)",
@@ -21,8 +20,7 @@ var questions = [
     correct: "All of the above.",
   },
   {
-    question:
-      "Which function of an Array object calls a function for each element in the array?",
+    question: "Which function of an Array object calls a function for each element in the array?",
     answers: ["forEach()", "every()", "forEvery()", "each()"],
     correct: "forEach()",
   },
@@ -44,16 +42,12 @@ var questions = [
 ];
 
 var startButton = document.getElementById("start");
-
 var preQuiz = document.getElementById("preQuiz");
-
 var questionEl = document.getElementById("question");
-
 var answerEl = document.getElementById("answer");
-
 var quizContainer = document.getElementById("quiz");
-
 var questionCount = 0;
+var score = 0;
 
 startButton.addEventListener("click", startGame);
 
@@ -75,16 +69,12 @@ function startQuiz() {
 }
 
 function showQuestion(question) {
-  console.log("show question works");
+  // console.log("show question works");
   questionEl.innerText = question.question;
-  document.getElementById("btn-1").textContent =
-    questions[questionCount].answers[0];
-  document.getElementById("btn-2").textContent =
-    questions[questionCount].answers[1];
-  document.getElementById("btn-3").textContent =
-    questions[questionCount].answers[2];
-  document.getElementById("btn-4").textContent =
-    questions[questionCount].answers[3];
+  document.getElementById("btn-1").textContent = questions[questionCount].answers[0];
+  document.getElementById("btn-2").textContent = questions[questionCount].answers[1];
+  document.getElementById("btn-3").textContent = questions[questionCount].answers[2];
+  document.getElementById("btn-4").textContent = questions[questionCount].answers[3];
 }
 
 document.getElementById("btn-1").addEventListener("click", pickAnswer);
@@ -93,9 +83,20 @@ document.getElementById("btn-3").addEventListener("click", pickAnswer);
 document.getElementById("btn-4").addEventListener("click", pickAnswer);
 
 function pickAnswer() {
+  console.log( "chosen answer", this.textContent)
+  if ( this.textcontent === questions[questionCount].correct) {
+    score++
+    console.log(questions[questionCount])
+  } else {
+    // "time minus ten seconds"
+    console.log(questions[questionCount])
+  }
   questionCount++;
   if (questions.length >= questionCount + 1) {
     showQuestion(questions[questionCount]);
   } else stopQuiz();
 }
-function stopQuiz() {}
+
+function stopQuiz() {
+  window.location.href = "highscores.html";
+}
