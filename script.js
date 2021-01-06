@@ -48,6 +48,7 @@ var answerEl = document.getElementById("answer");
 var quizContainer = document.getElementById("quiz");
 var questionCount = 0;
 var score = 0;
+var time = 60;
 
 startButton.addEventListener("click", startGame);
 
@@ -60,7 +61,16 @@ function startGame() {
   startQuiz();
 }
 
-function startTimer() {}
+function startTimer() {
+  // console.log(time);
+  setInterval(function () {
+    document.getElementById('timer').textContent = "Time Remaining = " + time;
+    time--;
+    if (time === 0) {
+      window.location.href = "highscores.html";
+    }
+  }, 1000);
+}
 
 function startQuiz() {
   console.log("start quiz works");
@@ -69,7 +79,6 @@ function startQuiz() {
 }
 
 function showQuestion(question) {
-  // console.log("show question works");
   questionEl.innerText = question.question;
   document.getElementById("btn-1").textContent = questions[questionCount].answers[0];
   document.getElementById("btn-2").textContent = questions[questionCount].answers[1];
@@ -85,14 +94,13 @@ document.getElementById("btn-4").addEventListener("click", pickAnswer);
 function pickAnswer() {
   console.log( "chosen answer", this.textContent)
   if ( this.textcontent === questions[questionCount].correct) {
-    score++
-    console.log(questions[questionCount])
+    score = score + 10 * startTime
+    // localStorage.setItem('userScore', score);
   } else {
-    // "time minus ten seconds"
-    console.log(questions[questionCount])
+    time = time - 10;
   }
   questionCount++;
-  if (questions.length >= questionCount + 1) {
+  if (questionCount < 5) {
     showQuestion(questions[questionCount]);
   } else stopQuiz();
 }
