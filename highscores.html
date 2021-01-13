@@ -4,10 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>High Scores</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <a id="home" href="index.html">Home</a>
+    <br />
+
     <h1>High Scores</h1>
-    <ol></ol>
-    <button></button>
+    <br />
+
+    <div class="container">
+      <div class="initials">
+        <p id="lastScore">Your Score</p>
+        <input type="text" placeholder="Input your initials" />
+
+        <button id="submitScore">Submit</button>
+        <button id="clear">Clear Scores</button>
+      </div>
+      <ul id="highScoreList"></ul>
+      <ul id="scoresList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="highscores.js"></script>
   </body>
 </html>
